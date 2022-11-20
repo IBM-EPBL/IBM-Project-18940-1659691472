@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rainfall Prediction</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <center>
+        <div class="title">
+            <h1>Rainfall Prediction</h1>
+            <div class="loginbutton">
+                <button onclick="document.getElementById('id01').style.display='block'"><b>Login</b></button>
+            </div>
+        </div>
+    </center>
+
+
+    <input type="text" value="{{ msg }}" id="message">
+
+    <!-- login side -->
+    <div id="id01" class="modal">
+
+
+        <div class="modal-content animate" method="post">
+
+            <form class="container" action="/login" method="post">
+
+                <label for="email"><b>Email</b>
+                    <input type="email" placeholder="Enter email" name="email" required>
+                </label>
+                <br><br>
+                <label for="psw"><b>Password</b>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </label>
+                <br><br>
+                <input type="checkbox" checked="checked" name="remember" required><span>Remember me</span>
+                <br><br>
+                <button type="submit">Login</button>
+
+                <div class="div1">
+                    <span class="psw"><a href="#">Forgot password?</a></span>
+                    <span><button class="register" onclick="displayid01()"><b>Create an account?</b></button></span>
+                </div>
+            </form>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display = 'none'"
+                    class="cancelbtn">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sign Up side  -->
+    <div id="id02" class="modal">
+
+
+        <div class="modal-content animate" method="post">
+
+            <form class="container" action="/addhome" method="post">
+
+                <label for="name"><b>Name</b>
+                    <input type="text" placeholder="Enter Name" name="uname" required>
+                </label>
+                <br><br>
+
+                <label for="Email"><b>Email</b>
+                    <input type="email" placeholder="Enter Email" name="Email" required>
+                </label>
+                <br><br>
+
+                <label for="psw"><b>Password</b>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                </label>
+                <br><br>
+
+                <button type="submit">Register</button>
+
+            </form>
+
+            <div class="div1">
+
+                <span>Already have an account?<button class="register" onclick="displayid02()"><b>Login</b></button></span>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display = 'none'"
+                    class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function displayid01() {
+            document.getElementById('id01').style.display = 'none'
+
+            document.getElementById('id02').style.display = 'block'
+        }
+
+        function displayid02() {
+            document.getElementById('id01').style.display = 'block'
+
+            document.getElementById('id02').style.display = 'none'
+        }
+
+
+        var data_alert = document.getElementById('message').value;
+
+        if(data_alert!=""){
+            alert(data_alert);
+        }
+
+    </script>
+
+</body>
+
+</html>
